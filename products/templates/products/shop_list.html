@@ -1,0 +1,55 @@
+﻿{% extends 'products/base_prod.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Shops
+{% endblock %}
+
+
+{% block content %}
+	<style>
+		table {
+ 		 font-family: arial, sans-serif;
+ 		 border-collapse: collapse;
+ 		 width: 100%;
+		}
+
+		td, th {
+  		border: 1px solid #dddddd;
+  		text-align: left;
+  		padding: 8px;
+		}
+
+		tr:nth-child(even) {
+  		background-color: #dddddd;
+		}
+	</style>
+
+	<table>
+  		<tr>
+		 <th style="width:2%">I</th>
+   		 <th style="width:10%">Название</th>
+    		 
+  		 </tr>
+	
+	
+		
+	{% for sh in shops %}
+		<tr>
+		<td style="font-size:80%"><a href="{{sh.get_absolute_url}}">I</a></td>
+		 <td style="font-size:80%;">{{sh.title}}</td>
+    		 
+		</tr>
+	{% endfor %}
+	
+	</table>
+
+
+<a class="btn btn-primary" href="{%url 'shop_create_url'%}" role="button">Добавить магазин</a>
+
+
+{% endblock %} 
+
+<!--{flat.get_absolute_url}-->

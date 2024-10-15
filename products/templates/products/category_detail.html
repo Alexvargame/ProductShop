@@ -1,0 +1,26 @@
+﻿{% extends 'products/base_prod.html'%}
+ 
+
+ 
+{% block title %}
+		
+	Category
+{% endblock %}
+
+
+{% block content %}
+Название {{category.title}}</br>
+
+Описание {{category.description}}</br>	
+
+Список товаров:</br>
+
+{%for pr in prod_list%}
+
+{{pr.title}}</br>
+{%endfor%}
+
+
+
+{% endblock %} 
+

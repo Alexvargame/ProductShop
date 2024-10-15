@@ -1,0 +1,50 @@
+﻿{% extends 'products/base_prod.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Search product
+{% endblock %}
+
+
+{% block content %}
+	<style>
+		table {
+ 		 font-family: arial, sans-serif;
+ 		 border-collapse: collapse;
+ 		 width: 40%;
+		}
+
+		td, th {
+  		border: 1px solid #dddddd;
+  		text-align: left;
+  		padding: 8px;
+		}
+
+		tr:nth-child(even) {
+  		background-color: #dddddd;
+		}
+	</style>
+	<form action="{%url 'product_search_url'%}" method='get'>
+		{% csrf_token %}
+	<div class="form-group">
+	<table>
+  		<tr>
+		 
+   		 <th style="width:10%">Название{{form.title}}</th>
+  		 </tr>
+		
+	</table>
+	</div>
+
+	<button type="submit" class="btn btn-primary">Найти</button>
+        </form>
+	{%for pr in prod%}
+	<a href="{{pr.get_absolure_url}}">{{pr}}</a>></br>
+	{%endfor%}
+	
+
+{% endblock %} 
+
+<!--{flat.get_absolute_url}-->

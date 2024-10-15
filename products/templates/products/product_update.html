@@ -1,0 +1,58 @@
+﻿{% extends 'products/base_prod.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Create Shop
+{% endblock %}
+
+
+{% block content %}
+	<style>
+		table {
+ 		 font-family: arial, sans-serif;
+ 		 border-collapse: collapse;
+ 		 width: 100%;
+		}
+
+		td, th {
+  		border: 1px solid #dddddd;
+  		text-align: left;
+  		padding: 8px;
+		}
+
+		tr:nth-child(even) {
+  		background-color: #dddddd;
+		}
+	</style>
+	<form action="{{prod.get_update_url}}" method='post'>
+		{% csrf_token %}
+	<div class="form-group">
+	<table>
+  		<tr>		 
+   		 <th style="width:10%">Название{{form.title}}</th>
+		 <th style="width:10%">Кол-во{{form.amount}}</th>
+		 <th style="width:10%">Цена{{form.price}}</th>
+		 <th style="width:10%">Категория{{form.category}}</th>
+		 <th style="width:10%">Наличие{{form.active}}</th>
+		
+ 		 </tr>
+		
+	</table>
+		<table>
+  		
+		<tr>		 
+		 <th style="width:100%">Описание{{form.description}} </th>	
+ 		 </tr>
+		
+	</table>
+	</div>
+	<button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+
+{{s}}
+
+{% endblock %} 
+
+<!--{flat.get_absolute_url}-->

@@ -1,0 +1,59 @@
+﻿{% extends 'products/base_prod.html'%}
+ 
+	
+ 
+{% block title %}
+		
+	Сategories
+{% endblock %}
+
+
+{% block content %}
+	<style>
+		table {
+ 		 font-family: arial, sans-serif;
+ 		 border-collapse: collapse;
+ 		 width: 100%;
+		}
+
+		td, th {
+  		border: 1px solid #dddddd;
+  		text-align: left;
+  		padding: 8px;
+		}
+
+		tr:nth-child(even) {
+  		background-color: #dddddd;
+		}
+	</style>
+
+	<table>
+  		<tr>
+		 <th style="width:2%">I</th>
+   		 <th style="width:10%">Название</th>
+    		
+  		 </tr>
+	
+	
+		
+	{% for cat in categories %}
+		<tr>
+		<td style="font-size:80%"><a href="{{cat.get_absolute_url}}">I</a></td>
+		 <td style="font-size:80%;">{{cat.title}}</td>
+    		 
+		</tr>
+	{% endfor %}
+	
+	
+	</table>
+		
+	
+
+
+
+<a class="btn btn-primary" href="{%url 'category_create_url'%}" role="button">Добавить категорию</a>
+
+
+{% endblock %} 
+
+<!--{flat.get_absolute_url}-->

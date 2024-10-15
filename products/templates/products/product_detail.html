@@ -1,0 +1,43 @@
+﻿{% extends 'products/base_prod.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Product
+{% endblock %}
+
+
+{% block content %}
+Название {{prod.title}}</br>
+Категория {{prod.category}}</br>
+Цена {{prod.price}}</br>
+Кро-во {{prod.amount}}</br>
+Описание {{prod.description}}</br>	
+Наличие {{prod.active}}</br>
+<p>
+			<img src="{{main_image.image.url}}">
+			</br>
+			  {% for image in other_images%}
+                            <img src="{{image.image.url}}", style="width: 40px; height: auto;">
+                          {%endfor%}
+                        </p>
+
+{{s}}
+{% if request.user.is_authenticated %}
+
+
+
+<div class="obj-panel">
+	<p>Выбрать</p>
+	 {% block obj-panel%}
+		<a class="btn btn-light" href="{{prod.get_update_url}}">Edit</a>
+		<a class="btn btn-danger" href="">Del</a>
+		<a class="btn btn-light" href="{% url 'product_list_url'%}">Список</a>
+	 {%endblock%}
+	</div>
+{% endif%}
+
+
+{% endblock %} 
+

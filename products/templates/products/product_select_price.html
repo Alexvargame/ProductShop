@@ -1,0 +1,51 @@
+﻿{% extends 'products/base_prod.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Select for price
+{% endblock %}
+
+
+{% block content %}
+	<style>
+		table {
+ 		 font-family: arial, sans-serif;
+ 		 border-collapse: collapse;
+ 		 width: 40%;
+		}
+
+		td, th {
+  		border: 1px solid #dddddd;
+  		text-align: left;
+  		padding: 8px;
+		}
+
+		tr:nth-child(even) {
+  		background-color: #dddddd;
+		}
+	</style>
+	<form action="{%url 'product_select_price_url'%}" method='get'>
+		{% csrf_token %}
+	<div class="form-group">
+	<table>
+  		<tr>
+		 
+   		 <th style="width:10%">Минимальная цена{{form.min_price}}</th>
+		 <th style="width:10%">Максимальная цена{{form.max_price}}</th>
+
+
+  		 </tr>
+		
+	</table>
+	</div>
+	<button type="submit" class="btn btn-primary">Выбрать</button>
+        </form>
+	{% for pr in prod%}
+	Продукт {{pr.title}} --  Цена {{pr.price}}</br>
+	{%endfor%}
+
+{% endblock %} 
+
+<!--{flat.get_absolute_url}-->

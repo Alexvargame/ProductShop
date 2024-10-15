@@ -1,0 +1,38 @@
+﻿{% extends 'poll/base_poll.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Votings
+{% endblock %}
+
+
+{% block content %}
+Название {{vote.vote_name}}
+	<form action="{% url 'voting_choice_url' pk=vote.id%}" method='post'>
+		{% csrf_token %}
+	<div class="form-group">
+	<table>
+  		<tr>
+		 
+		 <th style="width:10%">Перечень{{vote_list}}</th>
+
+  		 </tr>
+
+
+		
+	</table>
+	</div>
+	<button type="submit" class="btn btn-primary">Голосовать</button>
+        </form>
+Результат</br>
+{%for v in vote.vote_list.all%}
+ Покемон {{v.name}} ----- {{v.count}} голосов </br>
+
+{%endfor%}
+{{s}}
+
+
+{% endblock %} 
+

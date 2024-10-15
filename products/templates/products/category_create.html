@@ -1,0 +1,63 @@
+﻿{% extends 'products/base_prod.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Create Category
+{% endblock %}
+
+
+{% block content %}
+	<style>
+		table {
+ 		 font-family: arial, sans-serif;
+ 		 border-collapse: collapse;
+ 		 width: 100%;
+		}
+
+		td, th {
+  		border: 1px solid #dddddd;
+  		text-align: left;
+  		padding: 8px;
+		}
+
+		tr:nth-child(even) {
+  		background-color: #dddddd;
+		}
+	</style>
+	<form action="{%url 'category_create_url'%}" method='post'>
+		{% csrf_token %}
+	<div class="form-group">
+	<table>
+  		<tr>
+		 
+   		 <th style="width:10%">Название{{form.title}}</th>
+		 <th style="width:10%">Перечень{{form.description}}
+		 <div class="form-check">
+		
+		 </th>
+		 
+		 
+		 
+		
+		
+  		 </tr>
+	{% for sq in s%}
+ <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+    {{sq}}
+  </label>
+ </br>
+ {%endfor%}
+		
+	</table>
+	</div>
+	<button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+
+
+
+{% endblock %} 
+
+<!--{flat.get_absolute_url}-->

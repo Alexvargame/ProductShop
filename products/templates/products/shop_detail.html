@@ -1,0 +1,38 @@
+﻿{% extends 'products/base_prod.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Shop
+{% endblock %}
+
+
+{% block content %}
+Название {{shop.title}}</br>
+
+<img src="{{ shop.image.url }}">
+	
+</br>Список товаров</br>
+{%for prod in shop.products.all%}
+  {{prod.title}} ---цена {{prod.price}}  </br>
+
+{%endfor%}
+{{s}}
+
+{% if request.user.is_authenticated %}
+
+
+
+<div class="obj-panel">
+	<p>Выбрать</p>
+	 {% block obj-panel%}
+		<a class="btn btn-light" href="{{shop.get_update_url}}">Edit</a>
+		<a class="btn btn-danger" href="">Del</a>
+		<a class="btn btn-light" href="{% url 'shop_list_url'%}">Список</a>
+	 {%endblock%}
+	</div>
+{% endif%}
+
+{% endblock %} 
+
